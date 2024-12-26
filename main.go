@@ -5,10 +5,19 @@ import (
 	"time"
 )
 
-func temp() {
-	fmt.Println("temp")
+func TestA() {
+	for i := 0; i < 10; i++ {
+		j := i
+		defer func() {
+			fmt.Println("j: ", &j, " val: ", j)
+		}()
+	}
 }
+
 func main() {
+	TestA()
+}
+func main2() {
 	var a = [5]int{1, 2, 3, 4, 5}
 	var r [5]int
 
